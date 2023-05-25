@@ -53,11 +53,10 @@ const App = () => {
       <h1 className="text-center mt-4">
         Administrador Pacientes de Veterinaria
       </h1>
-
       <div className="card mt-4">
         <div className="card-body">
           <h2 className="card-title">Llenar el formulario para la cita</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="formulario">
             <div className="mb-3">
               <label htmlFor="mascota" className="form-label">
                 Nombre de Mascota
@@ -140,8 +139,7 @@ const App = () => {
             </button>
           </form>
         </div>
-      </div>
-
+      </div>{" "}
       <div className="card mt-4">
         <div className="card-body">
           {citas.length === 0 ? (
@@ -154,11 +152,15 @@ const App = () => {
                   <h6 className="card-subtitle mb-2 text-muted">
                     Dueño: {cita.duenio}
                   </h6>
-                  <p className="card-text">Fecha: {cita.fecha}</p>
-                  <p className="card-text">Hora: {cita.hora}</p>
-                  <p className="card-text">Síntomas: {cita.sintomas}</p>
+                  <div className="celeste p-3">
+                    {" "}
+                    <p className="card-text celeste">Fecha: {cita.fecha}</p>
+                    <p className="card-text celeste">Hora: {cita.hora}</p>
+                    <p className="card-text">Síntomas: {cita.sintomas}</p>
+                  </div>
+
                   <button
-                    className="btn btn-danger float-end"
+                    className="btn btn-danger float-end mt-3"
                     onClick={() => handleDelete(index)}
                   >
                     Borrar
